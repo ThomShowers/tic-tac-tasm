@@ -103,5 +103,16 @@ class Scanln_InputEndsWithLineSeps_LineSepsAreTrimmed(Scanln_Test, framework.Tes
     def expected(self): return "expected line"
 
 
+class CursorUp_Works(framework.Test):
+
+    def __init__(self): super().__init__()
+
+    def test(self):
+
+        result = subprocess.run([ "python", f"{scriptdir}/io_cursorUp.py" ])
+
+        framework.expect(result.returncode == 0, f"io_cursorUp.py exited with {result.returncode}")
+        
+
 if __name__ == "__main__":
     exit(0 if framework.run(__name__) else 1)
