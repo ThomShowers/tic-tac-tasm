@@ -83,13 +83,13 @@ class InconclusiveMethod_RaisesInconclusive(Test):
     def __init__(self): super().__init__()
 
     def test(self):
-        expected = "inconclusive prefix"
+        expected = "inconclusive message"
         try:
             inconclusive(expected)
             raise Exception("inconclusive() did not raise Inconclusive")
         except Inconclusive as err:
             if expected != str(err):
-                raise Exception("raised Inconclusive does not have expected prefix")
+                raise Exception("raised Inconclusive has wrong str()")
 
 
 class TestResult_NoMessage_Passed(Test):
@@ -111,7 +111,7 @@ class TestResult_Message_FailedWithMessage(Test):
         if result.passed:
             raise Exception("TestResult(message).passed is true")
         if expected != result.message:
-            raise Exception("TestResult(message) has wrong .message value")
+            raise Exception("TestResult(message) has wrong message")
             
 
 if __name__ == "__main__":
