@@ -44,7 +44,7 @@ class Test:
             self.test()
             return TestResult()
         except Inconclusive as err:
-            return TestResult(str(err))
+            return TestResult(f"inconclusive: {str(err)}")
         except ExpectationNotMet as err:
             return TestResult(f"failed: {str(err)}")
         except Exception as err:
