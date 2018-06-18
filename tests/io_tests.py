@@ -17,12 +17,12 @@ class Println_Prints(framework.Test):
             [ "python", f"{scriptdir}/io_println.py", expected ],
             stdout=subprocess.PIPE)
         
-        framework.expect(result.returncode == 0, f"io_scanln.py exited with {result.returncode}")
+        framework.expect(result.returncode == 0, f"io_println exited with {result.returncode}")
         
         actual = result.stdout.decode("utf-8")
 
         if not actual.endswith(os.linesep):
-            framework.inconclusive(f"io_println.py stdout missing expected '{os.linesep}'")
+            framework.inconclusive(f"io_println stdout missing expected '{os.linesep}'")
 
         actual = actual[:-len(os.linesep)]
 
@@ -43,7 +43,7 @@ class Scanln_Test():
         actual = result.stdout.decode("utf-8")
 
         if not actual.endswith(os.linesep):
-            framework.inconclusive(f"io_println.py stdout missing expected '{os.linesep}'")
+            framework.inconclusive(f"io_scanln stdout missing expected '{os.linesep}'")
 
         actual = actual[:-len(os.linesep)]
 
