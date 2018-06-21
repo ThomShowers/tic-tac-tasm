@@ -1,7 +1,7 @@
 OBJDIR := bld/obj
 OBJS := $(OBJDIR)/io.o
 
-TESTPROXYDIR = tests/native
+TESTPROXYDIR = tests/unittests/native
 TESTPROXYS = $(TESTPROXYDIR)/io.so
 
 .PHONY : build
@@ -27,6 +27,6 @@ test : build $(TESTPROXYS)
 .PHONY : clean
 clean : 
 	-rm -r bld
-	-rm -r tests/__pycache__
-	-rm -r tests/native
+	-rm -r tests/unittests/__pycache__
+	-rm -r tests/unittests/native
 
